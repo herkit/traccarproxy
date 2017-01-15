@@ -1,12 +1,15 @@
 console.log(process.env.TRACCAR_USER);
+var traccar = require('./traccar');
 
-require('./traccar')(
-  process.env.TRACCAR_SERVER, 
+var client = new traccar.Client(process.env.TRACCAR_SERVER, 
   process.env.TRACCAR_USER, 
-  process.env.TRACCAR_PASSWORD, 
-  function(err, response, body) {
+  process.env.TRACCAR_PASSWORD, function(err, response, body) {
     if (!err) {
       console.log(response.statusCode, body);
     } else
       console.log(err);
-  });
+  })
+
+client.on('message', function(data) {
+	console.log(data);
+})
