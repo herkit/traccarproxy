@@ -1,7 +1,7 @@
-console.log(process.env.TRACCAR_USER);
-var traccar = require('./traccar');
+var traccar = require('../src/traccar');
 
-var client = new traccar.Client(process.env.TRACCAR_SERVER, 
+var client = new traccar.Client(
+  process.env.TRACCAR_SERVER, 
   process.env.TRACCAR_USER, 
   process.env.TRACCAR_PASSWORD, function(err, response, body) {
     if (!err) {
