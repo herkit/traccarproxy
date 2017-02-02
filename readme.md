@@ -1,3 +1,3 @@
 # Traccar Proxy
 
-A test on proxying traccar websocket
+A NPM for proxying traccar websocket
